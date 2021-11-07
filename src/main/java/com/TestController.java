@@ -1,0 +1,28 @@
+package com;
+
+import com.dao.user.UserMapper;
+import com.domain.entity.user.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Date;
+
+@RestController
+public class TestController {
+    @Autowired
+    private UserMapper userMapper;
+    @Autowired
+    private ApplicationContext applicationContext;
+
+    @GetMapping("/test")
+    public User testInsert() {
+        User user = new User();
+        user.setAvatarUrl("xxx");
+        user.setCreateTime(new Date());
+        user.setUpdateTime(new Date());
+        this.userMapper.insertSelective(user);
+        return user;
+    }
+}
