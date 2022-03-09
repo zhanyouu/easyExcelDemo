@@ -13,10 +13,6 @@ import org.springframework.stereotype.Service;
 public class UserService {
     private final UserMapper userMapper;
     public User findById(Integer id) {
-        // select * from user where id = #{id}
         return this.userMapper.selectByPrimaryKey(id);
-    }
-    public void insertUser(User user){
-        this.userMapper.insert(user);
     }
 }

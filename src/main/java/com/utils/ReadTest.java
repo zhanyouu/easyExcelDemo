@@ -19,7 +19,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import tk.mybatis.spring.annotation.MapperScan;
 
 /**
  * 读的常见写法
@@ -94,7 +93,8 @@ public class ReadTest {
             private void saveData() {
                 LOGGER.info("{}条数据，开始存储数据库！", cachedData.size());
                 for (User user: cachedData){
-                    userService.insertUser(user);
+                    LOGGER.info(user.toString());
+//                    userService.insertUser(user);
                 }
                 LOGGER.info("存储数据库成功！");
             }

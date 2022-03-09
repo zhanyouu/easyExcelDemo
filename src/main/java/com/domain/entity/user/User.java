@@ -1,36 +1,28 @@
 package com.domain.entity.user;
 
 import java.util.Date;
-import javax.persistence.*;
 
 import lombok.*;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.stereotype.Component;
+
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "user")
 public class User {
     /**
      * Id
      */
-    @Id
-    @GeneratedValue(generator = "JDBC")
     private Integer id;
 
     /**
      * 微信id
      */
-    @Column(name = "wx_id")
     private String wxId;
 
     /**
      * 微信昵称
      */
-    @Column(name = "wx_nickname")
     private String wxNickname;
 
     /**
@@ -41,19 +33,16 @@ public class User {
     /**
      * 头像地址
      */
-    @Column(name = "avatar_url")
     private String avatarUrl;
 
     /**
      * 创建时间
      */
-    @Column(name = "create_time")
     private Date createTime;
 
     /**
      * 修改时间
      */
-    @Column(name = "update_time")
     private Date updateTime;
 
     /**
