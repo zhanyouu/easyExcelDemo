@@ -18,4 +18,13 @@
         select *
         from user where id =#{id}
     </select>
+    <select id="selectUserListByIds" parameterType="list" resultMap="BaseResultMap">
+        select *from user
+        <where>
+            <foreach item="item" index="index" collection="ids"
+                     open="ID in (" separator="," close=")">
+                #{item}
+            </foreach>
+        </where>
+    </select>
 </mapper>

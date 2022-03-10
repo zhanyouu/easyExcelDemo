@@ -9,6 +9,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
+import java.util.List;
 
 
 @RestController
@@ -22,6 +24,11 @@ public class UserController {
     public User findById(@RequestBody JSONObject req) {
         log.info("我被请求了...");
         return this.userService.findById(req.getInteger("id"));
+    }
+    @RequestMapping("/queryUsers")
+    public List<User> findByIds(@RequestBody JSONObject req) {
+        log.info("我被请求了...");
+        return this.userService.findUsersByIds(Arrays.asList(new Integer[]{1,2,3}));
     }
 }
 
